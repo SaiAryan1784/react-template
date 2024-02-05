@@ -21,14 +21,21 @@ const TeachableMachineComponent = () => {
 
       // Convenience function to set up a webcam
       const flip = true; // whether to flip the webcam
-      const webcamInstance = new tmImage.Webcam(400, 400, flip); // width, height, flip
+      const webcamInstance = new tmImage.Webcam(500, 300, flip); // width, height, flip
       await webcamInstance.setup(); // request access to the webcam
       await webcamInstance.play();
       setWebcam(webcamInstance);
 
       // Append the webcam canvas to the DOM
       const webcamContainer = document.getElementById('webcam-container');
-      webcamContainer.appendChild(webcamInstance.canvas);
+
+      // Remove previous children
+      while (webcamContainer.firstChild) {
+        webcamContainer.removeChild(webcamContainer.firstChild);
+      }
+
+      var newchild = webcamInstance.canvas;
+      webcamContainer.appendChild(newchild);
 
       const labelContainerElement = document.getElementById('label-container');
       setLabelContainer(labelContainerElement);
