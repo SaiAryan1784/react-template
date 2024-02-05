@@ -5,6 +5,7 @@ import AboutUs from './components/AboutUs'
 import Contact from './components/Contact'
 import Services from './components/Services'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import TeachableMachineComponent from './components/TeachableMachineComponent'
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
               <Route path='/AboutUs' element={<AboutUs/>}/>
               <Route path='/Services' element={<Services/>}/>
               <Route path='/Contact' element={<Contact/>}/>
+              <Route path='/tmcomp' element={<TeachableMachineComponent/>}/>
             </Route>
           </Routes>
         </BrowserRouter>

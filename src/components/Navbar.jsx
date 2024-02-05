@@ -20,11 +20,14 @@ const Navbar = () => {
                 <li>
                     <Link to="/Contact">Contact Us</Link>
                 </li>
+                <li>
+                    <Link to="/tmcomp">ML</Link>
+                </li>
             </ul>
             <button>hello</button>
         </nav>
         <Outlet/>
-            <button>HOME</button>
+            {/* <button>HOME</button> */}
         </>
     )
 }
