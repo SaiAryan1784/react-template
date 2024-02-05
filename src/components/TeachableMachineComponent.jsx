@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as tmImage from '@teachablemachine/image';
 
 const TeachableMachineComponent = () => {
-  const URL = 'https://teachablemachine.withgoogle.com/models/8zzJVsdHl/';
+  const URL = 'https://teachablemachine.withgoogle.com/models/Tc8AGqgPM/';
   const [model, setModel] = useState(null);
   const [webcam, setWebcam] = useState(null);
   const [labelContainer, setLabelContainer] = useState(null);
