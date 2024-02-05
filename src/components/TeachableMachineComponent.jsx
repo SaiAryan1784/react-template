@@ -19,14 +19,14 @@ const TeachableMachineComponent = () => {
       setModel(loadedModel);
       setMaxPredictions(loadedModel.getTotalClasses());
 
-      // Convenience function to setup a webcam
+      // Convenience function to set up a webcam
       const flip = true; // whether to flip the webcam
       const webcamInstance = new tmImage.Webcam(200, 200, flip); // width, height, flip
       await webcamInstance.setup(); // request access to the webcam
       await webcamInstance.play();
       setWebcam(webcamInstance);
 
-      // append elements to the DOM
+      // Append the webcam canvas to the DOM
       const webcamContainer = document.getElementById('webcam-container');
       webcamContainer.appendChild(webcamInstance.canvas);
 
@@ -80,7 +80,8 @@ const TeachableMachineComponent = () => {
       <div
         id="webcam-container"
         className="h-screen flex items-center justify-center"
-      ></div>
+      >
+      </div>
       <div id="label-container"></div>
 
       {predictions.map((prediction, index) => (
