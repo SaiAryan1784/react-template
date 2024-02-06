@@ -10,9 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^9.97.1",
+    "@react-three/fiber": "^8.15.16",
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^1.0.48",
     "@teachablemachine/image": "^0.8.5",
+    "drei": "^2.2.21",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-colorful": "^5.6.1",
+    "react-dom": "^18.2.0",
+    "react-three-fiber": "^6.0.13",
+    "three": "^0.161.0",
+    "use-asset": "^1.0.4",
+    "valtio": "^1.13.0",
+    "vite-plugin-glsl": "^1.2.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.43",
@@ -28,7 +39,7 @@
     "tailwindcss": "^3.4.1",
     "vite": "^5.0.8"
   },
-    "extends": [
-        "plugin:react/recommended"
-    ]
+  "extends": [
+    "plugin:react/recommended"
+  ]
 }

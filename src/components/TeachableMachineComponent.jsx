@@ -1,5 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import * as tmImage from '@teachablemachine/image';
+// import { Canvas } from "react-three-fiber";
+// import { useGLTF } from 'drei';
+// import penModelPath from '../assets/Black & Gray Gel Pen.glb';
+// import { Application } from '@splinetool/runtime';
+import Spline from '@splinetool/react-spline';
+
+
+
+// const canvas = document.getElementById('canvas3d');
+//     const app = new Application(canvas);
+//     app.load('https://prod.spline.design/R0RAGT2Y9eZzPf4m/scene.splinecode');
 
 const TeachableMachineComponent = () => {
   const URL = 'https://teachablemachine.withgoogle.com/models/Tc8AGqgPM/';
@@ -9,10 +20,15 @@ const TeachableMachineComponent = () => {
   const [maxPredictions, setMaxPredictions] = useState(null);
   const [predictions, setPredictions] = useState([]);
 
+
+    
+
+
   useEffect(() => {
     const init = async () => {
       const modelURL = URL + 'model.json';
       const metadataURL = URL + 'metadata.json';
+      
 
       // load the model and metadata
       const loadedModel = await tmImage.load(modelURL, metadataURL);
@@ -78,20 +94,43 @@ const TeachableMachineComponent = () => {
         labelContainer.childNodes[i].innerHTML = `${prediction[i].className}: ${(
           prediction[i].probability * 100
         ).toFixed(2)}%`;
+        const objecthtml = document.getElementById('object');
+        if((prediction[i].probability * 100)>66)
+            objecthtml.innerHTML = `${prediction[i].className}`;
       }
     }
   };
+  
+  // const PenModel = () => {
+  //   const { nodes, materials } = useGLTF(penModelPath);
+  //   return <primitive object={nodes['Pen']} />;
+  // };
 
   return (
     <div>
+      <Spline
+  scene="https://prod.spline.design/R0RAGT2Y9eZzPf4m/scene.splinecode"
+  style={{
+    width: '80%',
+    height: '50vh',
+    margin: 'auto',  // Center-align horizontally
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '20px',  // Add top margin
+  }}
+/>
+      <h2 id='object' className='h-auto m-[5rem] flex items-center justify-center'></h2>
       <div
         id="webcam-container"
-        className="h-screen flex items-center justify-center"
+        className="h-auto flex items-center justify-center mb-[3rem]"
       >
       </div>
-      <div id="label-container"></div>
+      <div id="label-container" className=' hidden'></div>
 
-      {predictions.map((prediction, index) => (
+      <p id='canvas3d'></p>
+
+      {/* {predictions.map((prediction, index) => (
         <div key={index} className="flex justify-between mb-1">
           <span className="text-base font-medium text-blue-700 ">
             {prediction.className}
@@ -114,7 +153,7 @@ const TeachableMachineComponent = () => {
             ></div>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
