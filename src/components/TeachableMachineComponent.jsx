@@ -129,6 +129,7 @@ const TeachableMachineComponent = () => {
       </div>
       <div id="label-container" className='hidden'></div>
       <p id='canvas3d'></p>
+      <a href='https://team-t-b-d-code-kshetra-master-csdf.vercel.app/' className='text-center mb-[2rem]'>Home</a>
     </div>
   );
 };
